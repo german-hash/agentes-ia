@@ -2,3 +2,4 @@ anthropic
 tavily-python
 fastapi
 uvicorn
+yfinance
