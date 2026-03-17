@@ -64,7 +64,7 @@ def ejecutar_agente_noticias_qsr():
     - Separás cada noticia con un punto y aparte
     - El texto total no debe superar los 3500 caracteres
     - Prioizar noticias de digitalizacion e ecommerce
-    - Priorizas noticias de cadenas globales como McDonald's, Starbucks, Burger King, KFC, Subway, Pizza Hut, Domino's, y cadenas relevantes en latinoamerica"""
+    - Priorizas noticias de cadenas globales como McDonald's, Starbucks, Burger King, KFC, Subway, Pizza Hut, Domino's, y cadenas relevantes en latinoamerica
     - Respondés siempre en español"""
 
     messages = [{"role": "user", "content": f"¿Cuáles son las noticias de QSR del día de hoy {hoy_query}?"}]
