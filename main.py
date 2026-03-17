@@ -14,14 +14,14 @@ tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
 # =====================
 ACCIONES_EEUU = [
     "AAPL", "MSFT", "GOOGL", "META","BRK-B", "JNJ", "JPM", "XOM",
-    "PG", "V", "UNH", "HD", "CVX", "MRK", "ABBV", "PEP", "KO" "BAC"
+    "PG", "V", "UNH", "HD", "CVX", "MRK", "ABBV", "PEP", "KO" ,"BAC"
 ]
 ACCIONES_EUROPA = [
     "ASML.AS", "NESN.SW", "NOVN.SW", "ROG.SW", "SAP.DE", "SIE.DE",
     "TTE.PA", "LVMH.PA", "OR.PA", "AZN.L", "HSBA.L", "BP.L"
 ]
 ACCIONES_CHINA = [
-    "BABA", "TCEHY", "JD", "BIDU", "NIO", "PDD", "VIPS", "NTES", "VIPS"
+    "BABA", "TCEHY", "JD", "BIDU", "NIO", "PDD", "NTES", "VIPS"
 ]
 
 # =====================
@@ -56,13 +56,15 @@ def ejecutar_agente_noticias_qsr():
     información actualizada.
     IMPORTANTE: 
     - Solo mostrás noticias del día de hoy ({hoy})
-    - Presentás entre 5 y 8 noticias, entre 2 y 3 del mundo y entre 5 y se de latam
+    - Presentás entre 5 y 8 noticias, entre 2 y 3 del mundo y entre 5 y 8 de de latam
     - El texto debe estar escrito para ser LEÍDO EN VOZ ALTA, sin markdown
     - No uses símbolos como #, *, **, ---, emojis ni caracteres especiales
     - Escribí en texto plano corrido, como un locutor de radio
     - Cada noticia debe tener: título, resumen de 2 líneas y fuente
     - Separás cada noticia con un punto y aparte
     - El texto total no debe superar los 3500 caracteres
+    - Prioizar noticias de digitalizacion e ecommerce
+    - Priorizas noticias de cadenas globales como McDonald's, Starbucks, Burger King, KFC, Subway, Pizza Hut, Domino's, y cadenas relevantes en latinoamerica"""
     - Respondés siempre en español"""
 
     messages = [{"role": "user", "content": f"¿Cuáles son las noticias de QSR del día de hoy {hoy_query}?"}]
@@ -285,7 +287,7 @@ def obtener_noticias(x_api_key: str = Header(None)):
     return {"noticias": resultado}
 
 @app.get("/noticias_qsr")
-def obtener_noticias(x_api_key: str = Header(None)):
+def obtener_noticias_qsr(x_api_key: str = Header(None)):
     if x_api_key != os.environ["API_SECRET_KEY"]:
         raise HTTPException(status_code=401, detail="No autorizado")
     resultado = ejecutar_agente_noticias_qsr()
