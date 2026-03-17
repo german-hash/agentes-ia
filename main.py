@@ -13,15 +13,15 @@ tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
 # CONFIGURACION ACCIONES
 # =====================
 ACCIONES_EEUU = [
-    "BRK-B", "JNJ", "JPM", "XOM",
-    "PG", "V", "UNH", "HD", "CVX", "MRK", "ABBV", "PEP", "BAC"
+    "AAPL", "MSFT", "GOOGL", "META","BRK-B", "JNJ", "JPM", "XOM",
+    "PG", "V", "UNH", "HD", "CVX", "MRK", "ABBV", "PEP", "KO" "BAC"
 ]
 ACCIONES_EUROPA = [
     "ASML.AS", "NESN.SW", "NOVN.SW", "ROG.SW", "SAP.DE", "SIE.DE",
     "TTE.PA", "LVMH.PA", "OR.PA", "AZN.L", "HSBA.L", "BP.L"
 ]
 ACCIONES_CHINA = [
-    "NTES", "VIPS"
+    "BABA", "TCEHY", "JD", "BIDU", "NIO", "PDD", "VIPS", "NTES", "VIPS"
 ]
 
 # =====================
