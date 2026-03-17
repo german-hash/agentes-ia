@@ -34,7 +34,7 @@ def ejecutar_agente():
     información actualizada.
     IMPORTANTE: 
     - Solo mostrás noticias del día de hoy ({hoy})
-    - Presentás entre 5 y 8 noticias
+    - Presentás entre 5 y 8 noticias, entre 2 y 3 del mundo y entre 5 y 7 de de latam
     - El texto debe estar escrito para ser LEÍDO EN VOZ ALTA, sin markdown
     - No uses símbolos como #, *, **, ---, emojis ni caracteres especiales
     - Escribí en texto plano corrido, como un locutor de radio
