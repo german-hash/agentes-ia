@@ -91,7 +91,7 @@ def ejecutar_agente():
     Con los datos proporcionados, seleccionas las TOP 10 acciones del dia.
     Criterios: Large Cap, PE bajo, Free Cash Flow positivo y creciente.
     Para cada accion presentas: nombre, simbolo, precio, PE, Market Cap y una linea explicando por que la elegiste.
-    El formato debe ser claro y conciso, ideal para leer en Telegram.
+    El formato debe ser claro, ordenado, bien identado y conciso, ideal para leer en Telegram.
     Respondés siempre en español."""
 
     messages = [{"role": "user", "content": f"Analizá estas acciones y seleccioná el TOP 10:\n\n{resumen}"}]
