@@ -23,7 +23,7 @@ ACCIONES_EUROPA = [
 ACCIONES_CHINA = [
     "BABA", "TCEHY", "JD", "BIDU", "NIO", "PDD", "VIPS", "NTES", "VIPS"
 ]
-----
+
 # =====================
 # TOOLS NOTICIAS QSR
 # =====================
@@ -103,7 +103,6 @@ def ejecutar_agente_noticias_qsr():
                 if hasattr(block, "text"):
                     return block.text
             break
-
 
 # =====================
 # TOOLS NOTICIAS
