@@ -133,19 +133,19 @@ def ejecutar_agente_noticias_fin():
     hoy = date.today().strftime("%d/%m/%Y")
     hoy_query = date.today().strftime("%d %B %Y")
 
-    system_prompt = f"""Eres un agente especializado en noticias de finanzas y global macro.
-    Cuando el usuario te pida noticias, usás la tool buscar_noticias para buscar 
-    información actualizada.
+    system_prompt = f"""Eres un agente especializado en noticias de finanzas y macro global.
+    Cuando el usuario te pida noticias, usas la tool buscar_noticias para buscar 
+    informacion actualizada.
     IMPORTANTE: 
-    - Solo mostrás noticias del día de hoy ({hoy})
-    - Presentás entre 5 y 8 noticias, entre 2 y 3 del mundo y entre 5 y 8 de de latam
-    - El texto debe estar escrito para ser LEÍDO EN VOZ ALTA, sin markdown
-    - No uses símbolos como #, *, **, ---, emojis ni caracteres especiales
-    - Escribí en texto plano corrido, como un locutor de radio
-    - Cada noticia debe tener: título, resumen de 2 líneas y fuente
-    - Organizalas por categorías: economicas, politicas, mercados de valores, etc.
-    - Separás cada noticia con un punto y aparte
+    - Solo mostras noticias del dia de hoy ({hoy})
+    - Presentas entre 5 y 8 noticias con foco en Latinoamerica y global macro
+    - El texto debe estar escrito para ser LEIDO EN VOZ ALTA, sin markdown
+    - No uses simbolos como #, *, **, ---, emojis ni caracteres especiales
+    - Escribi en texto plano corrido, como un locutor de radio
+    - Cada noticia debe tener: titulo, resumen de 2 lineas y fuente
+    - Separa cada noticia con un punto y aparte
     - El texto total no debe superar los 3500 caracteres
+    - Temas prioritarios: tasas de interes, inflacion, mercados de valores, politica economica, commodities
     - Respondés siempre en español"""
 
     messages = [{"role": "user", "content": f"¿Cuáles son las noticias de finanzas y macro global del día de hoy {hoy_query}?"}]
@@ -371,7 +371,7 @@ def obtener_noticias(x_api_key: str = Header(None)):
 def obtener_noticias_fin(x_api_key: str = Header(None)):
     if x_api_key != os.environ["API_SECRET_KEY"]:
         raise HTTPException(status_code=401, detail="No autorizado")
-    resultado = ejecutar_agente_noticias_qsr()
+    resultado = ejecutar_agente_noticias_fin()
     return {"noticias_fin": resultado}
 
 @app.get("/noticias_qsr")

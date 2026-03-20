@@ -39,8 +39,7 @@ def ejecutar_agente():
       - Organizalas por categorías: economicas, politicas, mercados de valores, etc.
       - Respondés siempre en español."""
 
-
-    messages = [{"role": "user", "content": f"¿Cuáles son las noticias de QSR del día de hoy {hoy_query}?"}]
+    messages = [{"role": "user", "content": f"¿Cuáles son las noticias de finanzas y global macro del día de hoy {hoy_query}?"}]
 
     while True:
         response = client.messages.create(
