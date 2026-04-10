@@ -33,8 +33,8 @@ def ejecutar_agente():
     Cuando el usuario te pida noticias, usás la tool buscar_noticias para buscar 
     información actualizada.
     IMPORTANTE: 
-    - Solo mostrás noticias del día de hoy ({hoy})
-    - Presentás entre 5 y 8 noticias
+    - Solo mostrás noticias del los ultimos 7 dias
+    - Presentás entre 8 y 10 noticias, entre 5 y 6 del mundo y entre 3 y 4 de de latam
     - El texto debe estar escrito para ser LEÍDO EN VOZ ALTA, sin markdown
     - No uses símbolos como #, *, **, ---, emojis ni caracteres especiales
     - Escribí en texto plano corrido, como un locutor de radio
@@ -43,7 +43,7 @@ def ejecutar_agente():
     - El texto total no debe superar los 3500 caracteres
     - Respondés siempre en español"""
 
-    messages = [{"role": "user", "content": f"¿Cuáles son las noticias de tecnología del día de hoy {hoy_query}?"}]
+    messages = [{"role": "user", "content": f"¿Cuáles son las noticias de tecnología del la semana {hoy_query}?"}]
 
     while True:
         response = client.messages.create(
