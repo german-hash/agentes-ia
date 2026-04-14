@@ -65,6 +65,10 @@ def ejecutar_agente_noticias_qsr():
     - El texto total no debe superar los 3500 caracteres
     - Prioizar noticias de digitalizacion e ecommerce
     - Priorizas noticias de cadenas globales como McDonald's, Starbucks, Burger King, KFC, Subway, Pizza Hut, Domino's, y cadenas relevantes en latinoamerica
+    - Al final del texto agrega una seccion separada con el texto exacto: 
+      FUENTES_INICIO
+      luego una linea por cada fuente en formato: Titulo - URL
+      luego el texto exacto: FUENTES_FIN
     - Respondés siempre en español"""
 
     messages = [{"role": "user", "content": f"¿Cuáles son las noticias de QSR del día de hoy {hoy_query}?"}]
@@ -379,7 +383,20 @@ def obtener_noticias_qsr(x_api_key: str = Header(None)):
     if x_api_key != os.environ["API_SECRET_KEY"]:
         raise HTTPException(status_code=401, detail="No autorizado")
     resultado = ejecutar_agente_noticias_qsr()
-    return {"noticias_qsr": resultado}
+    
+    # Separar el texto del audio y las fuentes
+    if "FUENTES_INICIO" in resultado and "FUENTES_FIN" in resultado:
+        partes = resultado.split("FUENTES_INICIO")
+        texto_audio = partes[0].strip()
+        fuentes = partes[1].split("FUENTES_FIN")[0].strip()
+    else:
+        texto_audio = resultado
+        fuentes = "No se encontraron fuentes"
+    
+    return {
+        "noticias": texto_audio,
+        "fuentes": fuentes
+    }
 
 @app.get("/acciones")
 def obtener_acciones(x_api_key: str = Header(None)):
